@@ -1,16 +1,14 @@
-name: CI
+name: exercicio-aula04
 
-on:
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
+  name: Job Linux
   JobLinux:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Show README content
       run: cat README.md
@@ -19,10 +17,11 @@ jobs:
       run: uname -r
 
   JobWindows:
+    name: Job Windows
     runs-on: windows-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Print OS version
-      run: systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+      run: "Get-CimInstance Win32_OperatingSystem"
