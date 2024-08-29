@@ -1,6 +1,9 @@
 name: exercicio-aula04
 
-on: push
+on: 
+  push:
+    branches:
+      - feature-new 
 
 jobs:
  
