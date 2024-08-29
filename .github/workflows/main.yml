@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  JobLinux:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Show README content
+      run: cat README.md
+
+    - name: Check Kernel version
+      run: uname -r
+
+  JobWindows:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Print OS version
+      run: systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
