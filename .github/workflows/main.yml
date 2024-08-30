@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - feature-new 
-
+  workflow_dispatch:
+  schedule:
+    - cron: '*/45 * 2-5 * *'
 jobs:
  
   JobLinux:
